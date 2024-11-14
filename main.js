@@ -1,19 +1,19 @@
-// Determines button clicked via id
-function myFunction(id) {
-  document.calc.result.value += id;
+const hienthi = document.querySelector(".box1");
+str = "";
+str1 = "";
+str2 = "";
+function out(id) {
+  let a = document.getElementById(id);
+  a.onclick = function () {
+    hienthi.innerHTML += id;
+  };
 }
-
-// Clears calculator input screen
-function clearScreen() {
-  document.calc.result.value = "";
+function clearContent() {
+  hienthi.innerHTML = "";
+  str = "";
+  str1 = "";
 }
-
-// Calculates input values
-function calculate() {
-  try {
-    var input = eval(document.calc.result.value);
-    document.calc.result.value = input;
-  } catch (err) {
-    document.calc.result.value = "Error";
-  }
+function kq() {
+  console.log(str);
+  console.log(str1);
 }
