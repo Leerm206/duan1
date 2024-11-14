@@ -1,19 +1,48 @@
-const hienthi = document.querySelector(".box1");
-str = "";
-str1 = "";
-str2 = "";
+let danhdau = false;
 function out(id) {
-  let a = document.getElementById(id);
-  a.onclick = function () {
-    hienthi.innerHTML += id;
-  };
+  if (danhdau == true) {
+    document.getElementById("hienthi").value = id;
+    danhdau = false;
+  } else {
+    document.getElementById("hienthi").value += id;
+  }
 }
-function clearContent() {
-  hienthi.innerHTML = "";
-  str = "";
-  str1 = "";
+function xoa() {
+  document.getElementById("hienthi").value = "";
 }
 function kq() {
-  console.log(str);
-  console.log(str1);
+  let str = document.getElementById("hienthi").value;
+  if (str.includes("/")) {
+    let lst = str.split("/");
+    let a = Number(lst[0]);
+    let b = Number(lst[1]);
+    if (b !== 0) {
+      let c = a / b;
+      document.getElementById("hienthi").value = c;
+    } else {
+      document.getElementById("hienthi").value = "ERROR";
+    }
+  }
+  if (str.includes("+")) {
+    let lst = str.split("+");
+    let a = Number(lst[0]);
+    let b = Number(lst[1]);
+    let c = a + b;
+    document.getElementById("hienthi").value = c;
+  }
+  if (str.includes("-")) {
+    let lst = str.split("-");
+    let a = Number(lst[0]);
+    let b = Number(lst[1]);
+    let c = a - b;
+    document.getElementById("hienthi").value = c;
+  }
+  if (str.includes("*")) {
+    let lst = str.split("*");
+    let a = Number(lst[0]);
+    let b = Number(lst[1]);
+    let c = a * b;
+    document.getElementById("hienthi").value = c;
+  }
+  danhdau = true;
 }
