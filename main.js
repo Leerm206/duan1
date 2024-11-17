@@ -1,7 +1,11 @@
 let danhdau = false;
 function out(id) {
   if (danhdau == true) {
-    document.getElementById("hienthi").value = id;
+    if (id == "/" || id == "*" || id == "+" || id == "-") {
+      document.getElementById("hienthi").value += id;
+    } else {
+      document.getElementById("hienthi").value = id;
+    }
     danhdau = false;
   } else {
     document.getElementById("hienthi").value += id;
